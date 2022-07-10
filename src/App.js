@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import On from './assets/on.PNG'
+import Off from './assets/off.PNG'
 
-function App() {
+
+const App = ()=> {
+  const [mentos, setmentos] = useState(false);
+    const khai = ()=> {
+        setmentos(!mentos);
+    }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={khai}>
+                {mentos ? 'Mentos mat khao' : 'Mentos khao'}
+      </button>
+      <img src={mentos ? On : Off}  ></img>
+      <h1>{mentos ? "Dimag Ki Batti Jalao" : "Dimag Ki Batti Bhujao" }</h1>
     </div>
   );
 }
